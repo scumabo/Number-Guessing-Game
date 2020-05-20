@@ -41,10 +41,10 @@ class GuessNumber:
             return Result.BINGO
 
         if number > self._target:
-            self._high = number
+            self._high = number if number < self._high else self._high
             return Result.HIGH
         else:
-            self._low = number
+            self._low = number if number > self._low else self._low
             return Result.LOW
 
     def play(self) -> None:
